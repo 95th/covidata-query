@@ -19,7 +19,7 @@ public class DataService {
     public DataInfo getByDate(String date) {
         var builder = UriComponentsBuilder.fromUriString(baseUrl)
                                           .path("Get_date_info")
-                                          .queryParam("date", date);
+                                          .queryParam("Date", date);
         return restTemplate.getForObject(builder.toUriString(), DataInfo.class);
     }
 
@@ -34,7 +34,7 @@ public class DataService {
     public DataInfo getByStateAndDate(String state, String date) {
         var builder = UriComponentsBuilder.fromUriString(baseUrl)
                                           .path("Pinpoint_state")
-                                          .queryParam("date", date)
+                                          .queryParam("Date", date)
                                           .queryParam("State_name", state);
         return restTemplate.getForObject(builder.toUriString(), DataInfo.class);
 
@@ -43,7 +43,7 @@ public class DataService {
     public DataInfo getByStatesAndDate(List<String> states, String date) {
         var builder = UriComponentsBuilder.fromUriString(baseUrl)
                                           .path("Pinpoint_info")
-                                          .queryParam("date", date)
+                                          .queryParam("Date", date)
                                           .queryParam("State_name", states);
         return restTemplate.getForObject(builder.toUriString(), DataInfo.class);
 
